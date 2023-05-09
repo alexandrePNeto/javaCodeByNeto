@@ -11,7 +11,6 @@ public class Main
 	{
 		//	other var's
 		Scanner input = new Scanner(System.in );
-		int	count = 0;
 		ArrayList<LineModel> lines = new ArrayList<>();
 		
 		//	path do arquivo.
@@ -22,37 +21,33 @@ public class Main
 		try {
 			Scanner scanFile	= new Scanner(fileObj);
 			
+			int id = 1;
+			
 			while(scanFile.hasNext())
 			{
 				String line	= scanFile.nextLine().toString();
 				LineModel lineHere = new LineModel();
 				LineController lc = new LineController();
 				lineHere.setContent(lc.lineContent(line).toString());
-//				lineHere.setId(lc.lineId(count));
-//				lineHere.setCountCaracters(lc.countCaracters(line));				
+				lineHere.setId(id++);
+				lineHere.setCountCaracters(lc.countCaracters(line));				
 				lines.add(lineHere);
 
-			}
-
+			}	//	while
 			scanFile.close();
 		} catch (FileNotFoundException e) {
 			e.getMessage();
-		}
+		}	//	try - cath
 	
 		System.out.println("--------------");
 		
 		for (LineModel lineModel : lines) {
 			System.out.println(lineModel.getContent());
-//			System.out.println(lineModel.getId());
-//			System.out.println(lineModel.getCountCaracters());
-		}
+			System.out.println("ID: " + lineModel.getId());
+			System.out.println("Quantidade de caracteres: " +
+								lineModel.getCountCaracters());
+		}	//	foreach
 
-//		System.out.println("Path: " + .getContent());
-		System.out.println("Count: " + count);
-		
-		//	var do arquivo.
-		
-		
 		input.close();
-	}	//
+	}	//	main
 }	//

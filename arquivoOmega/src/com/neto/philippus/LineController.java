@@ -9,15 +9,11 @@ public class LineController implements Line
 	}	//	lineContent
 
 	@Override
-	public int lineId(int id) {
-		return id;
-	}	//	lineId
-
-	@Override
 	public int countCaracters(String line) {
-		int countOffLine = 0;
+		int	countOffLine	= 0;
 		
-		//	TODO pega a linha e contar por aqui.
+		for (int i = 0; i < line.length(); i++)
+			countOffLine++;
 		
 		return countOffLine;
 	}	//	countCaracters
