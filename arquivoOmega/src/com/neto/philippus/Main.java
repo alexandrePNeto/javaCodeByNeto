@@ -2,6 +2,7 @@ package com.neto.philippus;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main 
@@ -9,36 +10,44 @@ public class Main
 	public static void main(String[] args) 
 	{
 		//	other var's
-		Scanner input		= new Scanner(System.in );
-		int	count			= 0;
-		
-		
+		Scanner input = new Scanner(System.in );
+		int	count = 0;
+		ArrayList<LineModel> lines = new ArrayList<>();
 		
 		//	path do arquivo.
 		System.out.print("Insira o path do aquivo: ");
-		String path			= input.nextLine().replace("\"", "");
+		String path = input.nextLine().replace("\"", "");
 			
-		File fileObj		= new File(path);
+		File fileObj = new File(path);
 		try {
 			Scanner scanFile	= new Scanner(fileObj);
 			
 			while(scanFile.hasNext())
 			{
 				String line	= scanFile.nextLine().toString();
-				if(line.contains("\\n"));
-					count ++;
-					
-				System.out.println(line);
+				LineModel lineHere = new LineModel();
+				LineController lc = new LineController();
+				lineHere.setContent(lc.lineContent(line).toString());
+//				lineHere.setId(lc.lineId(count));
+//				lineHere.setCountCaracters(lc.countCaracters(line));				
+				lines.add(lineHere);
+
 			}
 
 			scanFile.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	
 		System.out.println("--------------");
-		System.out.println();
-		System.out.println("Path: " + path);
+		
+		for (LineModel lineModel : lines) {
+			System.out.println(lineModel.getContent());
+//			System.out.println(lineModel.getId());
+//			System.out.println(lineModel.getCountCaracters());
+		}
+
+//		System.out.println("Path: " + .getContent());
 		System.out.println("Count: " + count);
 		
 		//	var do arquivo.

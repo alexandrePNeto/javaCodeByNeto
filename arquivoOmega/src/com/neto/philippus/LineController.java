@@ -4,12 +4,7 @@ public class LineController implements Line
 {
 	@Override
 	public String lineContent(String content) {
-		if (content != "" 
-			|| content == " "
-			|| !content.contains("!?;,'\""))
-			if(content.substring(-1, content.length()) != ".")
-				content+=".";
-		
+		//	TODO colocar ou tirar pontos
 		return "Conteúdo: " + content;
 	}	//	lineContent
 

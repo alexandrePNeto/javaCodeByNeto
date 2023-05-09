@@ -5,6 +5,7 @@ public class LineModel
 	private int		id;
 	private	String 	content;
 	private	int		countCaracters;
+	
 	public int getId() {
 		return id;
 	}
