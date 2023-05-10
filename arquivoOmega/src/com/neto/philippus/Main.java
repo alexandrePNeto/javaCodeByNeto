@@ -37,7 +37,6 @@ public class Main
 				lineHere.setId(id++);
 				lineHere.setCountCaracters(lc.countCaracters(line));				
 				lines.add(lineHere);
-
 			}	//	while
 			scanFile.close();
 		} catch (FileNotFoundException e) {
@@ -46,12 +45,14 @@ public class Main
 	
 		System.out.println("--------------");
 		
-		for (LineModel lineModel : lines) {
+		for (LineModel lineModel : lines) 
+		{
 			System.out.println(lineModel.getContent());
 			System.out.println(lineModel.getBollContent());
 			System.out.println("ID: " + lineModel.getId());
 			System.out.println("Quantidade de caracteres: " +
 								lineModel.getCountCaracters());
+			System.out.println();
 		}	//	foreach
 
 		input.close();
