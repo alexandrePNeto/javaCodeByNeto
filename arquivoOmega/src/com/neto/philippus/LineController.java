@@ -2,9 +2,13 @@ package com.neto.philippus;
 
 public class LineController implements Line
 {
+	protected static String lineContent;
+	
+	@SuppressWarnings("static-access")
 	@Override
 	public String lineContent(String content) {
-		//	TODO colocar ou tirar pontos
+		this.lineContent = content;
+		
 		return "Conteúdo: " + content;
 	}	//	lineContent
 
@@ -17,4 +21,20 @@ public class LineController implements Line
 		
 		return countOffLine;
 	}	//	countCaracters
+
+	
+	private static Boolean existContentBoll(String val) {
+		if(lineContent.contains(val))
+			return true;
+		else
+			return false;
+	}	//	existContentBoll
+
+	@Override
+	public String existContent(String valString) {
+		if(existContentBoll(valString))
+			return "Tem o valor: " + valString + ".";
+		else
+			return "Não tem o valor: " + valString + ".";
+	}	//	existContent
 }

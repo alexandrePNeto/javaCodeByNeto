@@ -4,8 +4,15 @@ public class LineModel
 {
 	private int		id;
 	private	String 	content;
+	private String	bollContent;
 	private	int		countCaracters;
 	
+	public String getBollContent() {
+		return bollContent;
+	}
+	public void setBollContent(String bollContent) {
+		this.bollContent = bollContent;
+	}
 	public int getId() {
 		return id;
 	}
