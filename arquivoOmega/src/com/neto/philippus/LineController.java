@@ -32,9 +32,9 @@ public class LineController implements Line
 
 	@Override
 	public String existContent(String valString) {
-		if(existContentBoll(valString))
-			return "Tem o valor: " + valString + ".";
-		else
+		if(!existContentBoll(valString))
 			return "Não tem o valor: " + valString + ".";
+			
+		return "Tem o valor: " + valString + ".";		
 	}	//	existContent
 }
