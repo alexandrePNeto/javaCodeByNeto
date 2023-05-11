@@ -1,4 +1,6 @@
-package com.neto.philippus;
+package com.neto.philippus.controllers;
+
+import com.neto.philippus.interfaces.Line;
 
 public class LineController implements Line
 {

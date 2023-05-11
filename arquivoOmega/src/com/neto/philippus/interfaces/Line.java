@@ -1,4 +1,4 @@
-package com.neto.philippus;
+package com.neto.philippus.interfaces;
 
 public interface Line 
 {
